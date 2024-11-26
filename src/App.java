@@ -1,15 +1,20 @@
 public class App {
-    public static void main(String[] args) throws Exception {
-    System.out.println("Tuition cost        Year");
-    double new_tuition = 0;
-    int i = 0;
-        for (i = 0; i<10; i++){
-        int tuition = 10000;
-        new_tuition = ((.05*i)*tuition)+ tuition;
-        int year = i + 1;
-        System.out.println("$"+(int)new_tuition+"                 "+ year);
+    public static void main(String[] args) {
+        System.out.println("Tuition Cost         Year");
+
+        double tuition = 10000; //declares the tuition
+        for (int i = 0; i < 10; i++) {
+            tuition *= 1.05; // Apply 5% annual growth
+            int year = i + 1; 
+            System.out.printf("$%-20d%d%n", (int) tuition, year);
         }
-    int four_year_cost = (int)new_tuition* 4;
-    System.out.println("The four year cost after " + i+ " years is $" +four_year_cost);
+
+        double totalCost = 0; //declares totalcost
+        for (int j = 0; j < 4; j++) {
+            tuition *= 1.05; // Continue tuition growth
+            totalCost += tuition; //finds the total cost of tuition for 4 years
+        }
+
+        System.out.println("The four-year cost after 10 years is $" + (int) totalCost);
     }
 }
